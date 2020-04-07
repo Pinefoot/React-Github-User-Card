@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import GitCards from './component/GitCards';
+import UserCards from './component/UserCards';
 
 class App extends React.Component {
   constructor(){
@@ -27,7 +28,7 @@ class App extends React.Component {
 
   handleChange = event => {
     this.setState({
-      followers: event.target.value
+      follow: event.target.value
     })
 
   }
@@ -51,9 +52,6 @@ class App extends React.Component {
       type = 'text'
       value = {this.state.followers}
       onChange={this.handleChange}
-
-
-
       />
 
       <div className="userCard">
@@ -63,6 +61,9 @@ class App extends React.Component {
         name = {this.state.userCard.name}
         img = {this.state.userCard.avatar_url}
         following = {this.state.userCard.following}
+        />
+        <UserCards
+        user = {this.state.followers.login}
         />
         
       </div>
