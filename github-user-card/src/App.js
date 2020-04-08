@@ -18,7 +18,7 @@ class App extends React.Component {
     axios.get('https://api.github.com/users/Pinefoot').then(response => {
       this.setState({
         userCard: response.data,
-        followers: ''
+       
       
 
       })
@@ -28,17 +28,25 @@ class App extends React.Component {
 
   handleChange = event => {
     this.setState({
-      follow: event.target.value
+      followers: event.target.value
     })
 
   }
 
+  // componentdidUpdate(prevProps, prevState){
+  //   if(this.state.userCard != prevState.userCard){ 
+  // }
+  // }
   findFriends = event => {
     event.preventDefault();
     axios.get('https://api.github.com/users/Pinefoot/followers')
     .then(response =>{
-      this.setState({ followers :response.data})
+      console.log(response.data);
+      this.setState({ 
+        followers: response.data
+      })
     })
+    
   }
 
 
@@ -47,24 +55,31 @@ class App extends React.Component {
   return (
     <div className="App">
       <h2>Github  User Cards</h2>
-      <button onClick={this.findFriends}>Find Followers!</button>
-      <input 
-      type = 'text'
-      value = {this.state.followers}
-      onChange={this.handleChange}
-      />
-
+      
+      
+      <h2> This Is Me!</h2>
       <div className="userCard">
         
         <GitCards 
+        key = {this.state.userCard.id}
         user = {this.state.userCard.login}
         name = {this.state.userCard.name}
         img = {this.state.userCard.avatar_url}
         following = {this.state.userCard.following}
         />
+        
+        <button onClick={this.findFriends}>Show My Followers!</button>
         <UserCards
-        user = {this.state.followers.login}
-        />
+     
+         value = {this.state.followers}
+        //  onChange={this.handleChange}
+        //  user = {this.state.followers.login}
+        //  name = {this.state.followers.name}
+        //  img = {this.state.followers.avatar_url}
+        //  following ={this.state.followers.following}
+          />
+       
+        
         
       </div>
     </div>
