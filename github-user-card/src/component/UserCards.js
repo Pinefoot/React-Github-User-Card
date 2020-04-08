@@ -1,23 +1,28 @@
 import React from 'react';
 
 
+
+
 function UserCards (props){
     console.log('this is usercard props', props);
 
     return(
-        
-        <div>
+   
+         
+        <div className ="followerCards">
         {props.value.map(follower => {
             return(
         <div key = {follower.id} className="usercards">
        
-        <img src={props.value.avatar_url} alt=" user"/>
-        <p>UserName: {props.value.login}</p>
-        <p>Following: {props.value.following}</p>
+        <img src={follower.avatar_url} alt=" user"/>
+        <p>UserName: {follower.login}</p>
+        <a className = "linksAhoy" href = {follower.html_url}target="_blank">Link: {follower.html_url}</a>
         </div>)
         })}
        
         </div>
+       
+       
         
     )
 }

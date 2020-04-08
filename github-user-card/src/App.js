@@ -41,7 +41,7 @@ class App extends React.Component {
     event.preventDefault();
     axios.get('https://api.github.com/users/Pinefoot/followers')
     .then(response =>{
-      console.log(response.data);
+      //console.log(response.data);
       this.setState({ 
         followers: response.data
       })
@@ -67,7 +67,7 @@ class App extends React.Component {
         img = {this.state.userCard.avatar_url}
         following = {this.state.userCard.following}
         />
-        
+
         <button onClick={this.findFriends}>Show My Followers!</button>
         <UserCards
      

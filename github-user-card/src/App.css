@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+
+.mycard {
+  background-color: cyan;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

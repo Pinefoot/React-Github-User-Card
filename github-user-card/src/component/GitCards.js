@@ -1,16 +1,26 @@
 import React from 'react';
 
 
+
+
+   
+
+
 function GitCards (props){
 
     return(
-        <div className='user-cards'>
-           <p>Name: {props.name}</p>
+        
+        
+            <div className = "mycard">
+           {/* <div className ="ordercards"> */}
            <img src={props.img} alt=" user"/>
-           <p>UserName: {props.user}</p>
+           <p>Name: {props.name}</p><br/>
+           <p>UserName: {props.user}</p><br/>
            <p>Following: {props.following}</p>
-           
-        </div>
+           {/* </div> */}
+           </div>
+       
+        
     )
 }
 
